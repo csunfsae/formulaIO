@@ -3,7 +3,7 @@
 
 # Web Software Team 
 Python based asynchronous server to receive realtime data from Formula SAE Electric Vehicle sensors. 
-- - - -
+
 ## Dependencies :
 | Software  | Version |
 | ------------- | :---: |
@@ -16,7 +16,7 @@ Python based asynchronous server to receive realtime data from Formula SAE Elect
 | Python |  **v 3.6** |
 | Grafana  | **v 5.1**|
 | PostgreSQL | **v 11**|
-- - - -
+
 ## Local Requirements
 ### Docker
 [Get Started with Docker | Docker](https://www.docker.com/get-started)
@@ -32,7 +32,7 @@ pip install --user pipenv
 ```sh
 curl https://raw.githubusercontent.com/kennethreitz/pipenv/master/get-pipenv.py | python
 ```
-- - - -
+
 ## Running Locally
 Commands
 ```sh
