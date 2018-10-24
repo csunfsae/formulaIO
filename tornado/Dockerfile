@@ -3,4 +3,4 @@ ADD . /code
 WORKDIR /code
 RUN pip install -U pipenv
 RUN pipenv install --system
-CMD ["python", "app.py"]
+CMD ["python", "main.py"]
