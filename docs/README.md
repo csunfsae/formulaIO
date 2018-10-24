@@ -1,4 +1,4 @@
-![](/readme/csunfsaelogo.png)
+![](http://www.ecs.csun.edu/sae/images/Matador%20Motorsports%20CSUN%20logo.png)
 
 # Formula SAE Electric Vehicle
 [![Build Status](https://travis-ci.org/csunfsae/formulaPy.svg?branch=master)](https://travis-ci.org/csunfsae/formulaPy)
