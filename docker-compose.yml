@@ -2,11 +2,11 @@ version: '3'
 services:
   web:
     build: 
-        context: ./tornado
+        context: ./socket
     ports:
-     - "8888:8888"
+     - "8080:3000"
     volumes:
-     - "./tornado:/code"
+     - "./socket:/code"
   db:
     image: postgres:latest
     ports:
