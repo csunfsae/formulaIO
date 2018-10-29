@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "start:dev": "DEBUG=socket:* npm start"
+    "start:dev": "DEBUG=socket:* npm start",
+    "lint": "eslint --ext .js ."
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
@@ -14,5 +15,10 @@
     "jade": "~1.11.0",
     "morgan": "~1.9.0",
     "socket.io": "^2.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
   }
 }
