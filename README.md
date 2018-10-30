@@ -38,6 +38,9 @@ Commands
 
 
 ```bash
+# Install NPM dependencies - Using Yarn
+cd socket
+yarn install
 
 # Build using docker-compose 
 # This will only build the images.
