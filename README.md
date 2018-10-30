@@ -38,6 +38,8 @@ Commands
 
 
 ```bash
+# Install yarn in socket directory
+cd socket && yarn install
 
 # Build using docker-compose 
 # This will only build the images.
