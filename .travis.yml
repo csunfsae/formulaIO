@@ -13,8 +13,6 @@ cache: yarn
 before_install:
   - docker-compose --version
   - docker-compose build
-  - docker-compose start
-  - docker ps
   - cd socket
 
 script:
