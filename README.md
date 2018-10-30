@@ -51,3 +51,11 @@ docker-compose build
 docker-compose up --build
 
 ```
+
+### Routes
+
+Web Server Host: `Localhost:8080`
+
+Grafana Host: `Localhost:3000`
+
+PostgreSql Host: `Localhost:5432`
