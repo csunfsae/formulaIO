@@ -54,8 +54,8 @@ docker-compose up --build
 
 ### Routes
 
-Web Server Host: Localhost:8080
+Web Server Host: `Localhost:8080`
 
-Grafana Host: Localhost:3000
+Grafana Host: `Localhost:3000`
 
-PostgreSql Host: Localhost:5432
+PostgreSql Host: `Localhost:5432`
