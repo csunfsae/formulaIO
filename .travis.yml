@@ -1,8 +1,10 @@
-language: node_js
-node_js:
-  - "10"
-cache: yarn
+language: python
+python:
+  - "3.6"
 before_install:
-  - 'cd socket'
+  - 'cd tornado' 
+install: 
+  - 'pip install pipenv'
+  - 'pipenv sync'
 script:
-  - yarn lint
+  - "flake8 ."
