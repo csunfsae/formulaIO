@@ -14,20 +14,37 @@ NodeJs based asynchronous server to receive realtime data from Formula SAE Elect
 >:whale:Docker - *v 18.06* | :elephant:PostgreSQL - *v 11* | Grafana  - *v 5.1*
 
 ## Local Requirements
-### Docker
-[Get Started with Docker | Docker](https://www.docker.com/get-started)
+### Docker-CE
+[Install Docker CE](https://docs.docker.com/install/)
+
+```bash
+# Verify installation is active
+systemctl show --property ActiveState docker
+```
 
 ### Node
 
+[Download and install Node LTS](https://nodejs.org/en/download/)
+
 ### Yarn
 
+[Install the latest release of Yarn](https://yarnpkg.com/lang/en/docs/install/)
+
 ## Running Locally
+
 Commands
+
+> *SUDO may be required to run such commands*
+
+
 ```bash
-# Build using docker-compose
+
+# Build using docker-compose 
+# This will only build the images.
 docker-compose build
 
 # Build and start docker images
+# This will build and start the docker images.
 docker-compose up --build
-```
 
+```

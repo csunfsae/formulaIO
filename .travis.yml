@@ -1,8 +1,21 @@
+sudo: required
+
 language: node_js
+
+services:
+  - docker
+
 node_js:
   - "10"
+
 cache: yarn
+
 before_install:
-  - 'cd socket'
+  - docker-compose --version
+  - docker-compose build
+  - docker-compose start
+  - docker ps
+  - cd socket
+
 script:
   - yarn lint
