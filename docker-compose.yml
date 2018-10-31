@@ -10,7 +10,7 @@ services:
   db:
     image: postgres:latest
     ports:
-      - "5432:5432"
+      - "5454:5454"
     restart: always
     environment:
       POSTGRES_PASSWORD: password
