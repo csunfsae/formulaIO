@@ -1,21 +1,21 @@
 {
   "development": {
-    "username": "admin",
-    "password": "admin",
+    "username": "postgres",
+    "password": "password",
     "database": "formulaDB",
     "host": "127.0.0.1",
     "dialect": "postgresql"
   },
   "test": {
-    "username": "admin",
-    "password": "admin",
+    "username": "postgres",
+    "password": "password",
     "database": "formulaDB",
     "host": "127.0.0.1",
     "dialect": "postgresql"
   },
   "production": {
-    "username": "admin",
-    "password": "admin",
+    "username": "postgres",
+    "password": "password",
     "database": "formulaDB",
     "host": "127.0.0.1",
     "dialect": "postgresql"
