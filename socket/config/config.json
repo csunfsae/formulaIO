@@ -3,21 +3,21 @@
     "username": "postgres",
     "password": "password",
     "database": "formulaDB",
-    "host": "127.0.0.1",
-    "dialect": "postgresql"
+    "port": "5432",
+    "dialect": "postgres"
   },
   "test": {
     "username": "postgres",
     "password": "password",
     "database": "formulaDB",
     "host": "127.0.0.1",
-    "dialect": "postgresql"
+    "dialect": "postgres"
   },
   "production": {
     "username": "postgres",
     "password": "password",
     "database": "formulaDB",
     "host": "127.0.0.1",
-    "dialect": "postgresql"
+    "dialect": "postgres"
   }
 }
