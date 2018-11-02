@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const voltage = sequelize.define('Voltage', {
+  const Voltage = sequelize.define('Voltage', {
     time: DataTypes.DATE,
     value: DataTypes.BIGINT,
     device: DataTypes.STRING,

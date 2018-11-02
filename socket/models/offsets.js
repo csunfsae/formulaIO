@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const offsets = sequelize.define('Offsets', {
+  const Offsets = sequelize.define('Offsets', {
     time: DataTypes.DATE,
     value: DataTypes.BIGINT,
     device: DataTypes.STRING

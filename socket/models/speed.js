@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const speed = sequelize.define('Speed', {
+  const Speed = sequelize.define('Speed', {
     time: DataTypes.DATE,
     value: DataTypes.BIGINT,
     type: DataTypes.STRING
