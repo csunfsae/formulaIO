@@ -4,6 +4,36 @@ const router = express.Router();
 
 const models = require('../models');
 
+router.get('/volatge', (req, res) => {
+  models.Voltage.findAll().then((voltage) => {
+    res.json(voltage);
+  });
+});
+
+router.post('voltage', (req, res) => {
+
+});
+
+router.get('/offsets', (req, res) => {
+  models.Offsets.findAll().then((offsets) => {
+    res.json(offsets);
+  });
+});
+
+router.post('offsets', (req, res) => {
+
+});
+
+router.get('/speed', (req, res) => {
+  models.Speeds.findAll().then((speed) => {
+    res.json(speed);
+  });
+});
+
+router.post('speed', (req, res) => {
+
+});
+
 router.get('/health', (req, res) => {
   models.Health.findAll().then((health) => {
     res.json(health);
