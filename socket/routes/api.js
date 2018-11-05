@@ -9,6 +9,14 @@ router.get('/health', (req, res) => {
     res.json(health);
   });
 });
+router.post('/health', (req, res) => {
+    let time = Date.parse(req.body.time); 
+    models.Health.create({
+        time:time,
+        active:req.body.active,
+        device:req.body.device
+    }).then(res.status(200).end());
+});
 
 
 
