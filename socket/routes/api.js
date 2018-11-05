@@ -11,7 +11,13 @@ router.get('/volatge', (req, res) => {
 });
 
 router.post('voltage', (req, res) => {
-
+  const time = Date.parse(req.body.time);
+  models.Voltage.create({
+    time,
+    value: req.body.value,
+    device: req.body.device,
+    state_charge: req.body.state_charge
+  }).then(res.status(200).end());
 });
 
 router.get('/offsets', (req, res) => {
@@ -21,17 +27,27 @@ router.get('/offsets', (req, res) => {
 });
 
 router.post('offsets', (req, res) => {
-
+  const time = Date.parse(req.body.time);
+  models.Offsets.create({
+    time,
+    value: req.body.value,
+    device: req.body.device,
+  }).then(res.status(200).end());
 });
 
 router.get('/speed', (req, res) => {
-  models.Speeds.findAll().then((speed) => {
+  models.Speed.findAll().then((speed) => {
     res.json(speed);
   });
 });
 
 router.post('speed', (req, res) => {
-
+  const time = Date.parse(req.body.time);
+  models.Speed.create({
+    time,
+    value: req.body.value,
+    type: req.body.type,
+  }).then(res.status(200).end());
 });
 
 router.get('/health', (req, res) => {
