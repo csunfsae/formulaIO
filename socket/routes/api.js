@@ -48,5 +48,6 @@ router.post('/traction', (req, res) => {
     is_slip: req.body.is_slip,
     device: req.body.device,
   }).then(res.status(200).end());
+});
 
 module.exports = router;
