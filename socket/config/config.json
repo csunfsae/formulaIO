@@ -1,6 +1,6 @@
 {
   "development": {
-    "host": "docker.for.windows.localhost",
+    "host": "docker.for.mac.localhost",
     "username": "postgres",
     "password": "password",
     "database": "formulaDB",
