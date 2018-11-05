@@ -18,6 +18,23 @@ router.post('/health', (req, res) => {
     }).then(res.status(200).end());
 });
 
+router.post('/pressure', (req, res) => {
+    let time = Date.parse(req.body.time); 
+    models.Pressure.create({
+        time:time,
+        value:req.body.value,
+        device:req.body.device
+    }).then(res.status(200).end());
+});
+router.post('/traction', (req, res) => {
+    let time = Date.parse(req.body.time); 
+    models.Traction.create({
+        time:time,
+        value:req.body.value,
+        is_slip:req.body.is_slip,
+        device:req.body.device
+    }).then(res.status(200).end());
+});
 
 
 module.exports = router;
