@@ -18,6 +18,16 @@ router.post('/health', (req, res) => {
     }).then(res.status(200).end());
 });
 
+router.get('/pressure', (req, res) => {
+    models.Pressure.findAll().then(function(pressure) {
+    res.json(pressure);
+  });
+});
+router.get('/traction', (req, res) => {
+    models.Traction.findAll().then(function(traction) {
+    res.json(traction);
+  });
+});
 
 
 module.exports = router;
