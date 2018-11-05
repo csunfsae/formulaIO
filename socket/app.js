@@ -10,7 +10,7 @@ const io = require('socket.io')(server);
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const apiRouter = require("./routes/api");
+const apiRouter = require('./routes/api');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
