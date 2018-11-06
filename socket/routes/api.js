@@ -10,7 +10,7 @@ router.get('/volatge', (req, res) => {
   });
 });
 
-router.post('voltage', (req, res) => {
+router.post('/voltage', (req, res) => {
   const time = Date.parse(req.body.time);
   models.Voltage.create({
     time,
@@ -26,7 +26,7 @@ router.get('/offsets', (req, res) => {
   });
 });
 
-router.post('offsets', (req, res) => {
+router.post('/offsets', (req, res) => {
   const time = Date.parse(req.body.time);
   models.Offsets.create({
     time,
@@ -41,7 +41,7 @@ router.get('/speed', (req, res) => {
   });
 });
 
-router.post('speed', (req, res) => {
+router.post('/speed', (req, res) => {
   const time = Date.parse(req.body.time);
   models.Speed.create({
     time,
