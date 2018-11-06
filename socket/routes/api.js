@@ -4,7 +4,7 @@ const router = express.Router();
 
 const models = require('../models');
 
-router.get('/volatge', (req, res) => {
+router.get('/voltage', (req, res) => {
   models.Voltage.findAll().then((voltage) => {
     res.json(voltage);
   });

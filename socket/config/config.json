@@ -1,6 +1,6 @@
 {
   "development": {
-    "host": "docker.for.mac.localhost",
+    "host": "host.docker.internal",
     "username": "postgres",
     "password": "password",
     "database": "formulaDB",
