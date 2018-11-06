@@ -16,7 +16,7 @@ router.post('/voltage', (req, res) => {
     time,
     value: req.body.value,
     device: req.body.device,
-    state_charge: req.body.state_charge
+    state_charge: req.body.state_charge,
   }).then(res.status(200).end());
 });
 
