@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "start:dev": "DEBUG=socket:* yarn start",
+    "start:dev": "yarn start",
     "lint": "eslint --ext .js ."
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
+    "dotenv": "^6.1.0",
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",

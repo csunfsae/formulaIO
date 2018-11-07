@@ -4,7 +4,7 @@ services:
     build: 
         context: ./socket
     ports:
-     - "8080:3000"
+     - "8080:8080"
     volumes:
      - "./socket:/code"
   db:
