@@ -5,10 +5,6 @@ const Accelerometer = {
 	value: DataTypes.BIGINT,
 	type: DataTypes.STRING,
 
-	// Create Getter route to get entry from Accel
-	get accelerInfo(){
-		// return necessary info
-	},
 
 	// Create Setter to allow mutation
 	set accelerInfo(speed){

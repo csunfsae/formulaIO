@@ -1,13 +1,13 @@
-module.exports = (sequelize, DataTypes) => {
-	const Accelerometer = sequelize.define('Accelerometer', {
-		time: DataTypes.DATE,
-		value: DataTypes.BIGINT,
-		type: DataTypes.STRING,
-	}, {});
 
-	// Accelerometer.associate = function(models){
-		// associations can be defined here
-	// };
-	return Accelerometer;	
+module.exports = (sequelize, DataTypes) => {
+  const accelerometer = sequelize.define('Accelerometer', {
+    time: DataTypes.DATE,
+    value: DataTypes.BIGINT,
+    device: DataTypes.STRING,
+    state_charge: DataTypes.BIGINT,
+  }, {});
+  // Accelerometer.associate = function(models) {
+  //   // associations can be defined here
+  // };
+  return accelerometer;
 };
-// https://www.youtube.com/watch?v=bl98dm7vJt0
