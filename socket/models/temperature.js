@@ -1,6 +1,6 @@
 
 module.exports = (sequelize, DataTypes) => {
-  const Temperature = sequelize.define('Temperature' , {
+  const Temperature = sequelize.define('Temperature', {
     time: DataTypes.DATE,
     value: DataTypes.BIGINT,
     device: DataTypes.STRING,
@@ -11,4 +11,4 @@ module.exports = (sequelize, DataTypes) => {
   // };
 
   return Temperature;
-}
+};

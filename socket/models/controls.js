@@ -1,7 +1,7 @@
 
 module.exports = (sequelize, DataTypes) => {
   const Controls = sequelize.define('Controls', {
-  	time: DataTypes.DATE,
+    time: DataTypes.DATE,
     active: DataTypes.BOOLEAN,
     type: DataTypes.STRING,
     device: DataTypes.STRING,
@@ -10,4 +10,4 @@ module.exports = (sequelize, DataTypes) => {
   // associations can be defined here
   // };
   return Controls;
-}
+};
