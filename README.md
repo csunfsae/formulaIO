@@ -59,3 +59,8 @@ Web Server Host: `Localhost:8080`
 Grafana Host: `Localhost:3000`
 
 PostgreSql Host: `Localhost:5432`
+
+
+## Local Development 
+
+Located in `/socket/` you will find a .example.env file. Make a copy of this file and rename it `.env` in it provide the credentials and host for your database.
