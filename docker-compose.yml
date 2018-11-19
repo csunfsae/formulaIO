@@ -1,6 +1,12 @@
 version: '3'
 services:
-  web:
+  ngnix:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
+  api:
     build: 
         context: ./socket
     ports:
