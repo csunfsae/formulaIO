@@ -10,17 +10,17 @@ services:
     build: 
         context: ./socket
     ports:
-     - "8080:8080"
+     - "8080"
     volumes:
      - "./socket:/code"
   db:
     image: postgres:latest
     ports:
-      - "5432:5432"
+      - "5432"
     restart: always
     environment:
       POSTGRES_PASSWORD: password
   grafana:
     image: grafana/grafana
     ports:
-      - "3000:3000"
+      - "3000"
