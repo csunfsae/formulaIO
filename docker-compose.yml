@@ -24,6 +24,7 @@ services:
     user: root
     volumes:
       - ./grafana-storage:/var/lib/grafana
+      - certs:/etc/nginx/certs:certs
     image: grafana/grafana
     ports:
       - "3000"
@@ -33,8 +34,8 @@ services:
       LETSENCRYPT_EMAIL: a13xemz@gmail.com
       GF_INSTALL_PLUGINS: "grafana-clock-panel,yesoreyeram-boomtable-panel,briangann-gauge-panel,bessler-pictureit-panel,natel-plotly-panel,jdbranham-diagram-panel,vonage-status-panel"
       GF_SERVER_PROTOCOL: https
-      # GF_SERVER_CERT_FILE: https
-      # GF_SERVER_CERT_KEY: https
+      GF_SERVER_CERT_FILE: certs
+      GF_SERVER_CERT_KEY: certs
   nginx-proxy:
     image: jwilder/nginx-proxy
     container_name: nginx-proxy
