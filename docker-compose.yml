@@ -24,7 +24,7 @@ services:
     user: root
     volumes:
       - ./grafana-storage:/var/lib/grafana
-      - certs:/etc/nginx/certs:certs
+      - certs:/etc/letsencrypt/certs:ro
     image: grafana/grafana
     ports:
       - "3000"
@@ -34,8 +34,8 @@ services:
       LETSENCRYPT_EMAIL: a13xemz@gmail.com
       GF_INSTALL_PLUGINS: "grafana-clock-panel,yesoreyeram-boomtable-panel,briangann-gauge-panel,bessler-pictureit-panel,natel-plotly-panel,jdbranham-diagram-panel,vonage-status-panel"
       GF_SERVER_PROTOCOL: https
-      GF_SERVER_CERT_FILE: certs
-      GF_SERVER_CERT_KEY: certs
+      GF_SERVER_CERT_FILE: /etc/letsencrypt/certs/matadormotorsports.racing/fullchain.pem
+      GF_SERVER_CERT_KEY: /etc/letsencrypt/certs/matadormotorsports.racing/privkey.pem
   nginx-proxy:
     image: jwilder/nginx-proxy
     container_name: nginx-proxy
