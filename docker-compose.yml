@@ -9,7 +9,8 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: formulaDB
   api:
-    build: 
+    restart: always
+    build:
         context: ./socket
     ports:
      - "8080"
@@ -18,6 +19,9 @@ services:
     depends_on:
       - db
   grafana:
+    user: root
+    volumes:
+      - ./grafana-storage:/var/lib/grafana
     image: grafana/grafana
     ports:
       - "3000"
