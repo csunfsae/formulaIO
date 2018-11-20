@@ -18,22 +18,61 @@ services:
      - "./socket:/code"
     depends_on:
       - db
+    environment:
+      VIRTUAL_HOST: api.matadormotorsports.racing
+      LETSENCRYPT_HOST: api.matadormotorsports.racing
+      LETSENCRYPT_EMAIL: a13xemz@gmail.com
   grafana:
     user: root
     volumes:
       - ./grafana-storage:/var/lib/grafana
+      - certs:/etc/letsencrypt/certs:ro
     image: grafana/grafana
     ports:
       - "3000"
     environment:
+      VIRTUAL_HOST: matadormotorsports.racing
+      LETSENCRYPT_HOST: matadormotorsports.racing
+      LETSENCRYPT_EMAIL: a13xemz@gmail.com
       GF_INSTALL_PLUGINS: "grafana-clock-panel,yesoreyeram-boomtable-panel,briangann-gauge-panel,bessler-pictureit-panel,natel-plotly-panel,jdbranham-diagram-panel,vonage-status-panel"
-  nginx:
-    image: nginx:latest
-    volumes:
-       - ./nginx.conf:/etc/nginx/nginx.conf
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
     ports:
-      - 80:80
+      - "80:80"
+      - "443:443"
+    volumes:
+      - conf:/etc/nginx/conf.d
+      - vhost:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - dhparam:/etc/nginx/dhparam
+      - certs:/etc/nginx/certs:ro
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    restart: always
+
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    container_name: nginx-proxy-le
     depends_on:
-      - api
-      - db
-      - grafana
+      - nginx-proxy
+    volumes:
+      - vhost:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - dhparam:/etc/nginx/dhparam:ro
+      - certs:/etc/nginx/certs
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - NGINX_PROXY_CONTAINER=nginx-proxy
+    restart: always
+
+volumes:
+  conf:
+  vhost:
+  html:
+  dhparam:
+  certs:
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
