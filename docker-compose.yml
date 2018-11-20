@@ -20,6 +20,8 @@ services:
       - db
     environment:
       VIRTUAL_HOST: api.matadormotorsports.racing
+      LETSENCRYPT_HOST: api.matadormotorsports.racing
+      LETSENCRYPT_EMAIL: a13xemz@gmail.com
   grafana:
     user: root
     volumes:
@@ -33,9 +35,6 @@ services:
       LETSENCRYPT_HOST: matadormotorsports.racing
       LETSENCRYPT_EMAIL: a13xemz@gmail.com
       GF_INSTALL_PLUGINS: "grafana-clock-panel,yesoreyeram-boomtable-panel,briangann-gauge-panel,bessler-pictureit-panel,natel-plotly-panel,jdbranham-diagram-panel,vonage-status-panel"
-      GF_SERVER_PROTOCOL: https
-      GF_SERVER_CERT_FILE: /etc/letsencrypt/certs/matadormotorsports.racing/fullchain.pem
-      GF_SERVER_CERT_KEY: /etc/letsencrypt/certs/matadormotorsports.racing/privkey.pem
   nginx-proxy:
     image: jwilder/nginx-proxy
     container_name: nginx-proxy
