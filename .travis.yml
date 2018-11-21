@@ -17,6 +17,7 @@ addons:
   ssh_known_hosts: matadormotorsports.racing
 before_deploy:
   - eval "$(ssh-agent -s)"
+  - cd ..
   - ls
   - ssh-add deploy_rsa
 deploy:
