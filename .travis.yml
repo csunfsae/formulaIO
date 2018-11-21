@@ -1,19 +1,15 @@
 sudo: required
-
 language: node_js
-
 services:
-  - docker
-
+- docker
 node_js:
-  - "10"
-
+- '10'
 cache: yarn
-
 before_install:
-  - docker-compose --version
-  - docker-compose build
-  - cd socket
-
+- openssl aes-256-cbc -K $encrypted_f41c5c7a0c29_key -iv $encrypted_f41c5c7a0c29_iv
+  -in deploy_rsa.enc -out deploy_rsa -d
+- docker-compose --version
+- docker-compose build
+- cd socket
 script:
-  - yarn lint
+- yarn lint
