@@ -4,7 +4,6 @@ module.exports = (sequelize, DataTypes) => {
     time: DataTypes.DATE,
     value: DataTypes.BIGINT,
     device: DataTypes.STRING,
-    state_charge: DataTypes.BIGINT,
   }, {});
   // Accelerometer.associate = function(models) {
   //   // associations can be defined here
