@@ -1,66 +1,16 @@
-![](/readme/csunfsaelogo.png)
+# CSUN Formula SAE Electric Vehicle Software
 
-# Formula SAE Electric Vehicle
 [![Build Status](https://travis-ci.org/csunfsae/formulaIO.svg?branch=master)](https://travis-ci.org/csunfsae/formulaIO)
 
-> Web Software Team
+![](https://github.com/csunfsae/formulaIO/raw/master/readme/csunfsaelogo.png)
 
-NodeJs based asynchronous server to receive realtime data from Formula SAE Electric Vehicle sensors. 
+NodeJs based asynchronous server to built receive realtime data from Formula SAE Electric Vehicle sensors.
+Grafana serves as the front-end interface to live data data collected on a Postgres DB. 
 
 ## Dependencies
-
->Express - *v 4.16* | NodeJS - *v 10.11*| Socket.io - *v 2*
-
->:whale:Docker - *v 18.06* | :elephant:PostgreSQL - *v 11* | Grafana  - *v 5.1*
-
-## Local Requirements
-### Docker-CE
-[Install Docker CE](https://docs.docker.com/install/)
-
-```bash
-# Verify installation is active
-systemctl show --property ActiveState docker
-```
-
-### Node
-
-[Download and install Node LTS](https://nodejs.org/en/download/)
-
-### Yarn
-
-[Install the latest release of Yarn](https://yarnpkg.com/lang/en/docs/install/)
-
-## Running Locally
-
-Commands
-
-> *SUDO may be required to run such commands*
-
-
-```bash
-# Install NPM dependencies - Using Yarn
-cd socket
-yarn install
-
-# Build using docker-compose 
-# This will only build the images.
-docker-compose build
-
-# Build and start docker images
-# This will build and start the docker images.
-docker-compose up --build
-
-```
-
-### Routes
-
-Web Server Host: `Localhost:8080`
-
-Grafana Host: `Localhost:3000`
-
-PostgreSql Host: `Localhost:5432`
-
-
-## Local Development 
-
-Located in `/socket/` you will find a .example.env file. Make a copy of this file and rename it `.env` in it provide the credentials and host for your database.
+* Express
+* NodeJs
+* Socket.io
+* Docker
+* PostgreSQL
+* Grafana
