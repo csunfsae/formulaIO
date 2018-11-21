@@ -35,6 +35,7 @@ services:
       LETSENCRYPT_HOST: matadormotorsports.racing
       LETSENCRYPT_EMAIL: csun.fsae.2018@gmail.com
       GF_INSTALL_PLUGINS: "grafana-clock-panel,yesoreyeram-boomtable-panel,briangann-gauge-panel,bessler-pictureit-panel,natel-plotly-panel,jdbranham-diagram-panel,vonage-status-panel"
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
   nginx-proxy:
     image: jwilder/nginx-proxy
     container_name: nginx-proxy
