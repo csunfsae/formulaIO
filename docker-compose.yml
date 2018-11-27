@@ -34,6 +34,7 @@ services:
       VIRTUAL_HOST: matadormotorsports.racing
       LETSENCRYPT_HOST: matadormotorsports.racing
       LETSENCRYPT_EMAIL: csun.fsae.2018@gmail.com
+      GF_METRICS_ENABLED: "true"
       GF_SECURITY_DISABLE_GRAVATAR: "true"
       GF_SERVER_ROOT_URL: "https://matadormotorsports.racing"
       GF_INSTALL_PLUGINS: "grafana-clock-panel,yesoreyeram-boomtable-panel,briangann-gauge-panel,bessler-pictureit-panel,natel-plotly-panel,jdbranham-diagram-panel,vonage-status-panel"
