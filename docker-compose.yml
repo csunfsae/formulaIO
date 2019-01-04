@@ -77,7 +77,21 @@ services:
     environment:
       - NGINX_PROXY_CONTAINER=nginx-proxy
     restart: always
-
+  ddns:
+    image: davd/docker-ddns:latest
+    environment:
+      RECORD_TTL: 60
+      ZONE: car.matadormotorsports.racing
+      SHARED_SECRET: changeme
+      VIRTUAL_HOST: car.matadormotorsports.racing
+      LETSENCRYPT_HOST: api.matadormotorsports.racing
+      LETSENCRYPT_EMAIL: csun.fsae.2018@gmail.com
+    ports:
+      - "53:53"
+      - "53:53/udp"
+      - "8080:8080"
+    restart: always
+      
 volumes:
   conf:
   vhost:
