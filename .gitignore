@@ -75,4 +75,5 @@ typings/
 # FuseBox cache
 .fusebox/
 #grafana-storage
-grafana-storage/
+grafana-storage/plugins
+grafana-storage/*.db
