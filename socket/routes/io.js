@@ -20,6 +20,9 @@ function ioRouter(io) {
     socket.on('traction', (data) => {
       api.createTraction(data);
     });
+    socket.on('location', (data) => {
+      api.createLocation(data);
+    });
   });
 }
 module.exports = ioRouter;
