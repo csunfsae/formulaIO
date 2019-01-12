@@ -2,7 +2,9 @@
 module.exports = (sequelize, DataTypes) => {
   const accelerometer = sequelize.define('Accelerometer', {
     time: DataTypes.DATE,
-    value: DataTypes.BIGINT,
+    x: DataTypes.BIGINT,
+    y: DataTypes.BIGINT,
+    z: DataTypes.BIGINT,
     device: DataTypes.STRING,
   }, {});
   // Accelerometer.associate = function(models) {
