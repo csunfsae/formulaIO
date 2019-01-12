@@ -82,7 +82,7 @@ router.post('/speed', (req, res) => {
     .then(res.status(200).end());
 });
 router.post('/location', (req, res) => {
-  createSpeed(req.body)
+  createLocation(req.body)
     .then(res.status(200).end());
 });
 // GET Routes
@@ -117,7 +117,7 @@ router.get('/traction', (req, res) => {
   });
 });
 router.get('/location', (req, res) => {
-  models.Traction.findAll().then((location) => {
+  models.Location.findAll().then((location) => {
     res.json(location);
   });
 });
