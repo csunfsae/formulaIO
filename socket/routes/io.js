@@ -23,6 +23,15 @@ function ioRouter(io) {
     socket.on('location', (data) => {
       api.createLocation(data);
     });
+    socket.on('accelerometer', (data) => {
+      api.createAccelerometer(data);
+    });
+    socket.on('gyroscope', (data) => {
+      api.createGyroscope(data);
+    });
+    socket.on('compass', (data) => {
+      api.createCompass(data);
+    });
   });
 }
 module.exports = ioRouter;

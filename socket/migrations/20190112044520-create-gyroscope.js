@@ -1,26 +1,23 @@
 
 module.exports = {
-  up: (queryInterface, Sequelize) => queryInterface.createTable('Accelerometer', {
+  up: (queryInterface, Sequelize) => queryInterface.createTable('Gyroscopes', {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: Sequelize.INTEGER,
     },
-    time: {
-      type: Sequelize.DATE,
-    },
     x: {
-      type: Sequelize.BIGINT,
+      type: Sequelize.DOUBLE,
     },
     y: {
-      type: Sequelize.BIGINT,
+      type: Sequelize.DOUBLE,
     },
     z: {
-      type: Sequelize.BIGINT,
+      type: Sequelize.DOUBLE,
     },
-    device: {
-      type: Sequelize.STRING,
+    time: {
+      type: Sequelize.DATE,
     },
     createdAt: {
       allowNull: false,
@@ -31,5 +28,5 @@ module.exports = {
       type: Sequelize.DATE,
     },
   }),
-  down: queryInterface => queryInterface.dropTable('Accelerometer'),
+  down: queryInterface => queryInterface.dropTable('Gyroscopes'),
 };

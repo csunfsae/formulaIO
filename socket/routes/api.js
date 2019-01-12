@@ -55,6 +55,33 @@ function createLocation(body) {
     cell_id: body.cell_id,
   });
 }
+function createGyroscope(body) {
+  return models.Gyroscope.create({
+    time: Date.parse(body.time),
+    x: body.value,
+    y: body.value,
+    z: body.value,
+    device: body.device,
+  });
+}
+function createAccelerometer(body) {
+  return models.Accelerometer.create({
+    time: Date.parse(body.time),
+    x: body.value,
+    y: body.value,
+    z: body.value,
+    device: body.device,
+  });
+}
+function createCompass(body) {
+  return models.Compass.create({
+    time: Date.parse(body.time),
+    x: body.value,
+    y: body.value,
+    z: body.value,
+    device: body.device,
+  });
+}
 
 // Post Routes
 router.post('/traction', (req, res) => {
@@ -85,6 +112,19 @@ router.post('/location', (req, res) => {
   createLocation(req.body)
     .then(res.status(200).end());
 });
+router.post('/accelerometer', (req, res) => {
+  createAccelerometer(req.body)
+    .then(res.status(200).end());
+});
+router.post('/gyroscope', (req, res) => {
+  createGyroscope(req.body)
+    .then(res.status(200).end());
+});
+router.post('/compass', (req, res) => {
+  createCompass(req.body)
+    .then(res.status(200).end());
+});
+
 // GET Routes
 router.get('/offsets', (req, res) => {
   models.Offsets.findAll().then((offsets) => {
@@ -121,6 +161,21 @@ router.get('/location', (req, res) => {
     res.json(location);
   });
 });
+router.get('/accelerometer', (req, res) => {
+  models.Accelerometer.findAll().then((accelerometer) => {
+    res.json(accelerometer);
+  });
+});
+router.get('/gyroscope', (req, res) => {
+  models.Gyroscope.findAll().then((gyroscope) => {
+    res.json(gyroscope);
+  });
+});
+router.get('/compass', (req, res) => {
+  models.Compass.findAll().then((compass) => {
+    res.json(compass);
+  });
+});
 
 module.exports = {
   router,
@@ -130,4 +185,7 @@ module.exports = {
   createHealth,
   createPressure,
   createTraction,
+  createAccelerometer,
+  createGyroscope,
+  createCompass,
 };
