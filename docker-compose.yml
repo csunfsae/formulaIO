@@ -3,7 +3,7 @@ services:
   db:
     image: timescale/timescaledb:latest-pg10
     ports:
-      - "5432"
+     - "5432:5432"
     restart: always
     environment:
       POSTGRES_PASSWORD: password
@@ -27,7 +27,7 @@ services:
     volumes:
       - ./grafana-storage:/var/lib/grafana
       - certs:/etc/letsencrypt/certs:ro
-    image: grafana/grafana
+    image: grafana/grafana:master
     ports:
       - "3000"
     environment:
@@ -37,7 +37,7 @@ services:
       GF_METRICS_ENABLED: "true"
       GF_SECURITY_DISABLE_GRAVATAR: "true"
       GF_SERVER_ROOT_URL: "https://matadormotorsports.racing"
-      GF_INSTALL_PLUGINS: "grafana-clock-panel,yesoreyeram-boomtable-panel,briangann-gauge-panel,bessler-pictureit-panel,natel-plotly-panel,jdbranham-diagram-panel,vonage-status-panel"
+      GF_INSTALL_PLUGINS: "grafana-clock-panel,yesoreyeram-boomtable-panel,briangann-gauge-panel,bessler-pictureit-panel,natel-plotly-panel,jdbranham-diagram-panel,vonage-status-panel,grafana-worldmap-panel,snuids-radar-panel,marcuscalidus-svg-panel"
       # GF_AUTH_ANONYMOUS_ENABLED: "true"
       GF_AUTH_GOOGLE_ENABLED: "true"
       GF_AUTH_GOOGLE_CLIENT_ID: "${CLIENT_ID}"
@@ -77,7 +77,6 @@ services:
     environment:
       - NGINX_PROXY_CONTAINER=nginx-proxy
     restart: always
-
 volumes:
   conf:
   vhost:
