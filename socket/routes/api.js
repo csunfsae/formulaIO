@@ -47,6 +47,14 @@ function createTraction(body) {
     device: body.device,
   });
 }
+function createLocation(body) {
+  return models.Location.create({
+    time: Date.parse(body.time),
+    lat: body.lat,
+    long: body.long,
+    cell_id: body.cell_id,
+  });
+}
 
 // Post Routes
 router.post('/traction', (req, res) => {
@@ -73,7 +81,10 @@ router.post('/speed', (req, res) => {
   createSpeed(req.body)
     .then(res.status(200).end());
 });
-
+router.post('/location', (req, res) => {
+  createLocation(req.body)
+    .then(res.status(200).end());
+});
 // GET Routes
 router.get('/offsets', (req, res) => {
   models.Offsets.findAll().then((offsets) => {
@@ -103,6 +114,11 @@ router.get('/pressure', (req, res) => {
 router.get('/traction', (req, res) => {
   models.Traction.findAll().then((traction) => {
     res.json(traction);
+  });
+});
+router.get('/location', (req, res) => {
+  models.Location.findAll().then((location) => {
+    res.json(location);
   });
 });
 

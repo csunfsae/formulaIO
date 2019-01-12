@@ -1,7 +1,7 @@
 version: '3'
 services:
   db:
-    image: postgres:latest
+    image: timescale/timescaledb:latest-pg10
     ports:
       - "5432"
     restart: always
@@ -38,7 +38,7 @@ services:
       GF_SECURITY_DISABLE_GRAVATAR: "true"
       GF_SERVER_ROOT_URL: "https://matadormotorsports.racing"
       GF_INSTALL_PLUGINS: "grafana-clock-panel,yesoreyeram-boomtable-panel,briangann-gauge-panel,bessler-pictureit-panel,natel-plotly-panel,jdbranham-diagram-panel,vonage-status-panel"
-      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      # GF_AUTH_ANONYMOUS_ENABLED: "true"
       GF_AUTH_GOOGLE_ENABLED: "true"
       GF_AUTH_GOOGLE_CLIENT_ID: "${CLIENT_ID}"
       GF_AUTH_GOOGLE_CLIENT_SECRET: "${CLIENT_SECRET}"
