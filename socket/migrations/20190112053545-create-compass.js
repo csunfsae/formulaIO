@@ -16,6 +16,9 @@ module.exports = {
     z: {
       type: Sequelize.DOUBLE,
     },
+    degree: {
+      type: Sequalize.DOUBLE,
+    },
     time: {
       type: Sequelize.DATE,
     },

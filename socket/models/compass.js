@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     x: DataTypes.DOUBLE,
     y: DataTypes.DOUBLE,
     z: DataTypes.DOUBLE,
+    degree: DataTypes.DOUBLE,	
     time: DataTypes.DATE,
   }, {});
   // Compass.associate = function(models) {

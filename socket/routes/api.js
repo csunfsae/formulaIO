@@ -58,27 +58,29 @@ function createLocation(body) {
 function createGyroscope(body) {
   return models.Gyroscope.create({
     time: Date.parse(body.time),
-    x: body.value,
-    y: body.value,
-    z: body.value,
+    x: body.x,
+    y: body.y,
+    z: body.z,
     device: body.device,
   });
 }
 function createAccelerometer(body) {
   return models.Accelerometer.create({
     time: Date.parse(body.time),
-    x: body.value,
-    y: body.value,
-    z: body.value,
+    x: body.x,
+    y: body.y,
+    z: body.z,
     device: body.device,
   });
 }
 function createCompass(body) {
+  var degreeDirection = 90 - Math.atan(body.x / body.y);
   return models.Compass.create({
     time: Date.parse(body.time),
-    x: body.value,
-    y: body.value,
-    z: body.value,
+    x: body.x,
+    y: body.y,
+    z: body.z,
+    direction: degreeDirection,
     device: body.device,
   });
 }
