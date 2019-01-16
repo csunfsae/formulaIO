@@ -80,7 +80,7 @@ function createCompass(body) {
     x: body.x,
     y: body.y,
     z: body.z,
-    direction: degreeDirection,
+    degree: degreeDirection,
     device: body.device,
   });
 }
