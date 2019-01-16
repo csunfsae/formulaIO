@@ -74,7 +74,7 @@ function createAccelerometer(body) {
   });
 }
 function createCompass(body) {
-  var degreeDirection = 90 - Math.atan(body.x / body.y);
+  const degreeDirection = 90 - Math.atan(body.x / body.y);
   return models.Compass.create({
     time: Date.parse(body.time),
     x: body.x,

@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node -r dotenv/config ./bin/www",
     "start:dev": "nodemon -r dotenv/config ./bin/www",
-    "lint": "eslint --ext .js ."
+    "lint": "eslint --ext .js .",
+    "lint:fix": "eslint --ext .js . --fix"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
