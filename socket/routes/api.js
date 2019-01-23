@@ -65,9 +65,9 @@ function createLocation(body) {
 function createGyroscope(body) {
   return models.Gyroscope.create({
     time: Date.parse(body.time),
-    x: body.value,
-    y: body.value,
-    z: body.value,
+    x: body.x,
+    y: body.y,
+    z: body.z,
     device: body.device,
   });
 }
