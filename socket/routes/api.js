@@ -11,8 +11,8 @@ function createVoltage(body) {
     state_charge: body.state_charge,
   });
 }
-function createTempature(body) {
-  return models.Tempature.create({
+function createTemperature(body) {
+  return models.Temperature.create({
     time: Date.parse(body.time),
     value: body.value,
     device: body.device,
@@ -131,8 +131,8 @@ router.post('/compass', (req, res) => {
   createCompass(req.body)
     .then(res.status(200).end());
 });
-router.post('/tempature', (req, res) => {
-  createTempature(req.body)
+router.post('/temperature', (req, res) => {
+  createTemperature(req.body)
     .then(res.status(200).end());
 });
 
@@ -187,9 +187,9 @@ router.get('/compass', (req, res) => {
     res.json(compass);
   });
 });
-router.get('/tempature', (req, res) => {
-  models.Tempatures.findAll().then((tempature) => {
-    res.json(tempature);
+router.get('/temperature', (req, res) => {
+  models.Temperature.findAll().then((temperature) => {
+    res.json(temperature);
   });
 });
 
