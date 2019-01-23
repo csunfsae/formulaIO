@@ -209,5 +209,5 @@ module.exports = {
   createAccelerometer,
   createGyroscope,
   createCompass,
-  createTempature,
+  createTemperature,
 };
