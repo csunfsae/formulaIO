@@ -12,14 +12,14 @@ function createVoltage(body) {
   });
 }
 function createTempature(body) {
-  return models.Tempatures.create({
+  return models.Tempature.create({
     time: Date.parse(body.time),
     value: body.value,
     device: body.device,
   });
 }
 function createOffsets(body) {
-  return models.Offsets.create({
+  return models.Offset.create({
     time: Date.parse(body.time),
     value: body.value,
     device: body.device,
