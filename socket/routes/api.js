@@ -11,6 +11,13 @@ function createVoltage(body) {
     state_charge: body.state_charge,
   });
 }
+function createTempature(body) {
+  return models.Tempatures.create({
+    time: Date.parse(body.time),
+    value: body.value,
+    device: body.device,
+  });
+}
 function createOffsets(body) {
   return models.Offsets.create({
     time: Date.parse(body.time),
@@ -124,6 +131,10 @@ router.post('/compass', (req, res) => {
   createCompass(req.body)
     .then(res.status(200).end());
 });
+router.post('/tempature', (req, res) => {
+  createTempature(req.body)
+    .then(res.status(200).end());
+});
 
 // GET Routes
 router.get('/offsets', (req, res) => {
@@ -176,6 +187,16 @@ router.get('/compass', (req, res) => {
     res.json(compass);
   });
 });
+router.get('/tempature', (req, res) => {
+  models.Tempatures.findAll().then((tempature) => {
+    res.json(tempature);
+  });
+});
+
+// router.get('/3d/gyro', (req, res) => {
+//   res.json([]);
+// });
+
 
 module.exports = {
   router,
@@ -188,4 +209,5 @@ module.exports = {
   createAccelerometer,
   createGyroscope,
   createCompass,
+  createTempature,
 };

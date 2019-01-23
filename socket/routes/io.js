@@ -32,6 +32,9 @@ function ioRouter(io) {
     socket.on('compass', (data) => {
       api.createCompass(data);
     });
+    socket.on('tempature', (data) => {
+      api.createTempature(data);
+    });
   });
 }
 module.exports = ioRouter;
