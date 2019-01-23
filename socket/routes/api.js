@@ -74,9 +74,9 @@ function createGyroscope(body) {
 function createAccelerometer(body) {
   return models.Accelerometer.create({
     time: Date.parse(body.time),
-    x: body.value,
-    y: body.value,
-    z: body.value,
+    x: body.x,
+    y: body.y,
+    z: body.z,
     device: body.device,
   });
 }
