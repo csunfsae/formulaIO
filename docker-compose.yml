@@ -15,11 +15,12 @@ services:
       - "8083:8083"
       - "8086:8086"
       - "8090:8090"
-    environment:
-      INFLUXDB_DATA_ENGINE: tsm1
-      INFLUXDB_REPORTING_DISABLED: false
     volumes:
       - /srv/docker/influxdb/data:/var/lib/influxdb
+    environment:
+      - INFLUXDB_DB: formulaDB 
+      - INFLUXDB_ADMIN_USER: racer
+      - INFLUXDB_ADMIN_PASSWORD: password
   api:
     restart: always
     build:
