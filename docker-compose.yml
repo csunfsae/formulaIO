@@ -18,9 +18,9 @@ services:
     volumes:
       - /srv/docker/influxdb/data:/var/lib/influxdb
     environment:
-      - INFLUXDB_DB: formulaDB 
-      - INFLUXDB_ADMIN_USER: racer
-      - INFLUXDB_ADMIN_PASSWORD: password
+      - INFLUXDB_DB: "formulaDB" 
+      - INFLUXDB_ADMIN_USER: "racer"
+      - INFLUXDB_ADMIN_PASSWORD: "password"
   api:
     restart: always
     build:
