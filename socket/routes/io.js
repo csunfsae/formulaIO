@@ -33,6 +33,7 @@ function ioRouter(io) {
       api.createCompass(data);
     });
     socket.on('temperature', (data) => {
+      socket.broadcast.emit('temperature',data);
       api.createTemperature(data);
     });
   });
