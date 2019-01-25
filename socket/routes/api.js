@@ -2,6 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 const models = require('../models');
+const schemas = require('../schemas');
 
 function createVoltage(body) {
   return models.Voltage.create({
@@ -81,6 +82,14 @@ function createAccelerometer(body) {
   });
 }
 function createCompass(body) {
+  schemas.writePoints([
+    {
+      measurement: 'compass',
+      tags: { device: body.device },
+      fields: { x: body.x, y: body.y, z: body.z },
+      timestamp: Date.parse(body.time),
+    },
+  ]);
   return models.Compass.create({
     time: Date.parse(body.time),
     x: body.x,
