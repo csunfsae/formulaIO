@@ -89,7 +89,9 @@ function createCompass(body) {
       fields: { x: body.x, y: body.y, z: body.z },
       timestamp: Date.parse(body.time),
     },
-  ]);
+  ]).catch(err => {
+    console.error(`Error saving data to InfluxDB! ${err.stack}`)
+  });
   return models.Compass.create({
     time: Date.parse(body.time),
     x: body.x,
