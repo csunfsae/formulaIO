@@ -16,6 +16,9 @@ module.exports = {
     z: {
       type: Sequelize.DOUBLE,
     },
+    az: {
+      type: Sequelize.DOUBLE,
+    },
     time: {
       type: Sequelize.DATE,
     },
