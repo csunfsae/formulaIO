@@ -223,4 +223,5 @@ module.exports = {
   createGyroscope,
   createCompass,
   createTemperature,
+  createLocation,  
 };
