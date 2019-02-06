@@ -60,7 +60,8 @@ function createLocation(body) {
     time: Date.parse(body.time),
     lat: body.lat,
     long: body.long,
-    cell_id: body.cell_id,
+    sats: body.sats,
+    alt: body.alt
   });
 }
 function createGyroscope(body) {

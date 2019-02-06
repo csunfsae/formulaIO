@@ -10,15 +10,18 @@ module.exports = {
     lat: {
       type: Sequelize.INTEGER,
       defaultValue: null,
-      validate: { min: -90, max: 90 },
     },
     long: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.DOUBLE,
       defaultValue: null,
-      validate: { min: -180, max: 180 },
     },
-    cell_id: {
-      type: Sequelize.STRING,
+    sats: {
+      type: Sequelize.DOUBLE,
+      defaultValue: null,
+    },
+    alt: {
+      type: Sequelize.DOUBLE,
+      defaultValue: null,
     },
     time: {
       type: Sequelize.DATE,

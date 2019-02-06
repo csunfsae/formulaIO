@@ -2,6 +2,7 @@ const api = require('./api');
 
 function ioRouter(io) {
   io.on('connection', (socket) => {
+    socket.emit('connected');
     socket.on('voltage', (data) => {
       socket.broadcast.emit('voltage', data);
       api.createVoltage(data);
