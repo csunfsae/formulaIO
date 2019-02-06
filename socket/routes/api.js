@@ -98,6 +98,7 @@ function createCompass(body) {
     x: body.x,
     y: body.y,
     z: body.z,
+    az: body.az,
     device: body.device,
   });
 }
