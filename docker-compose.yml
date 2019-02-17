@@ -18,9 +18,9 @@ services:
     volumes:
       - /srv/docker/influxdb/data:/var/lib/influxdb
     environment:
-      - INFLUXDB_DB: "formulaDB" 
-      - INFLUXDB_ADMIN_USER: "racer"
-      - INFLUXDB_ADMIN_PASSWORD: "password"
+      - "INFLUXDB_DB=formulaDB"
+      - "INFLUXDB_ADMIN_USER=racer"
+      - "INFLUXDB_ADMIN_PASSWORD=password"
   api:
     restart: always
     build:
@@ -50,7 +50,7 @@ services:
       GF_METRICS_ENABLED: "true"
       GF_SECURITY_DISABLE_GRAVATAR: "true"
       GF_SERVER_ROOT_URL: "https://matadormotorsports.racing"
-      GF_INSTALL_PLUGINS: "grafana-clock-panel,yesoreyeram-boomtable-panel,briangann-gauge-panel,bessler-pictureit-panel,natel-plotly-panel,jdbranham-diagram-panel,vonage-status-panel,grafana-worldmap-panel,snuids-radar-panel,marcuscalidus-svg-panel"
+      GF_INSTALL_PLUGINS: "https://github.com/pR0Ps/grafana-trackmap-panel/archive/v2.0.0.zip;grafana-trackmap,ryantxu-ajax-panel,grafana-clock-panel,yesoreyeram-boomtable-panel,briangann-gauge-panel,bessler-pictureit-panel,natel-plotly-panel,jdbranham-diagram-panel,vonage-status-panel,grafana-worldmap-panel,snuids-radar-panel,marcuscalidus-svg-panel"
       # GF_AUTH_ANONYMOUS_ENABLED: "true"
       GF_AUTH_GOOGLE_ENABLED: "true"
       GF_AUTH_GOOGLE_CLIENT_ID: "${CLIENT_ID}"

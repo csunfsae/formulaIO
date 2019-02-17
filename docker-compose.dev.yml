@@ -27,9 +27,8 @@ services:
       - certs:/etc/letsencrypt/certs:ro
     image: grafana/grafana
     ports:
-      - "3000"
+        - "3000:3000"
     environment:
-      VIRTUAL_HOST: localhost
       GF_INSTALL_PLUGINS: "grafana-clock-panel,yesoreyeram-boomtable-panel,briangann-gauge-panel,bessler-pictureit-panel,natel-plotly-panel,jdbranham-diagram-panel,vonage-status-panel"
       GF_AUTH_ANONYMOUS_ENABLED: "true"
   nginx-proxy:
