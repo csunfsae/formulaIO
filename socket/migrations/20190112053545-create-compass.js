@@ -22,14 +22,8 @@ module.exports = {
     time: {
       type: Sequelize.DATE,
     },
-    createdAt: {
-      allowNull: false,
-      type: Sequelize.DATE,
-    },
-    updatedAt: {
-      allowNull: false,
-      type: Sequelize.DATE,
-    },
+  }).then(() => {
+    Sequelize.query("SELECT create_hypertable('Compasses', 'time')");
   }),
   down: queryInterface => queryInterface.dropTable('Compasses'),
 };

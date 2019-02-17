@@ -2,7 +2,6 @@ const express = require('express');
 
 const router = express.Router();
 const models = require('../models');
-const schemas = require('../schemas');
 
 function createVoltage(body) {
   return models.Voltage.create({
@@ -61,7 +60,7 @@ function createLocation(body) {
     lat: body.lat,
     long: body.long,
     sats: body.sats,
-    alt: body.alt
+    alt: body.alt,
   });
 }
 function createGyroscope(body) {
@@ -83,16 +82,6 @@ function createAccelerometer(body) {
   });
 }
 function createCompass(body) {
-  schemas.writePoints([
-    {
-      measurement: 'compass',
-      tags: { device: body.device },
-      fields: { x: body.x, y: body.y, z: body.z },
-      timestamp: Date.parse(body.time),
-    },
-  ]).catch(err => {
-    console.error(`Error saving data to InfluxDB! ${err.stack}`)
-  });
   return models.Compass.create({
     time: Date.parse(body.time),
     x: body.x,
@@ -223,5 +212,5 @@ module.exports = {
   createGyroscope,
   createCompass,
   createTemperature,
-  createLocation,  
+  createLocation,
 };
