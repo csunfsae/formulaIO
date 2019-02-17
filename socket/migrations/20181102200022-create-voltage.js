@@ -19,14 +19,8 @@ module.exports = {
     state_charge: {
       type: Sequelize.BIGINT,
     },
-    createdAt: {
-      allowNull: false,
-      type: Sequelize.DATE,
-    },
-    updatedAt: {
-      allowNull: false,
-      type: Sequelize.DATE,
-    },
+  }).then(() => {
+    Sequelize.query("SELECT create_hypertable('Voltages', 'time')");
   }),
   down: queryInterface => queryInterface.dropTable('Voltages'),
 };

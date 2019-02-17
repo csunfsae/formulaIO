@@ -23,14 +23,8 @@ module.exports = {
       allowNull: false,
       type: Sequelize.BOOLEAN,
     },
-    createdAt: {
-      allowNull: false,
-      type: Sequelize.DATE,
-    },
-    updatedAt: {
-      allowNull: false,
-      type: Sequelize.DATE,
-    },
+  }).then(() => {
+    Sequelize.query("SELECT create_hypertable('Tractions', 'time')");
   }),
   down: queryInterface => queryInterface.dropTable('Tractions'),
 };
