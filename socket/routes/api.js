@@ -11,8 +11,15 @@ function createVoltage(body) {
     state_charge: body.state_charge,
   });
 }
+function createTemperature(body) {
+  return models.Temperature.create({
+    time: Date.parse(body.time),
+    value: body.value,
+    device: body.device,
+  });
+}
 function createOffsets(body) {
-  return models.Offsets.create({
+  return models.Offset.create({
     time: Date.parse(body.time),
     value: body.value,
     device: body.device,
@@ -52,33 +59,35 @@ function createLocation(body) {
     time: Date.parse(body.time),
     lat: body.lat,
     long: body.long,
-    cell_id: body.cell_id,
+    sats: body.sats,
+    alt: body.alt,
   });
 }
 function createGyroscope(body) {
   return models.Gyroscope.create({
     time: Date.parse(body.time),
-    x: body.value,
-    y: body.value,
-    z: body.value,
+    x: body.x,
+    y: body.y,
+    z: body.z,
     device: body.device,
   });
 }
 function createAccelerometer(body) {
   return models.Accelerometer.create({
     time: Date.parse(body.time),
-    x: body.value,
-    y: body.value,
-    z: body.value,
+    x: body.x,
+    y: body.y,
+    z: body.z,
     device: body.device,
   });
 }
 function createCompass(body) {
   return models.Compass.create({
     time: Date.parse(body.time),
-    x: body.value,
-    y: body.value,
-    z: body.value,
+    x: body.x,
+    y: body.y,
+    z: body.z,
+    az: body.az,
     device: body.device,
   });
 }
@@ -122,6 +131,10 @@ router.post('/gyroscope', (req, res) => {
 });
 router.post('/compass', (req, res) => {
   createCompass(req.body)
+    .then(res.status(200).end());
+});
+router.post('/temperature', (req, res) => {
+  createTemperature(req.body)
     .then(res.status(200).end());
 });
 
@@ -176,6 +189,16 @@ router.get('/compass', (req, res) => {
     res.json(compass);
   });
 });
+router.get('/temperature', (req, res) => {
+  models.Temperature.findAll().then((temperature) => {
+    res.json(temperature);
+  });
+});
+
+// router.get('/3d/gyro', (req, res) => {
+//   res.json([]);
+// });
+
 
 module.exports = {
   router,
@@ -188,4 +211,6 @@ module.exports = {
   createAccelerometer,
   createGyroscope,
   createCompass,
+  createTemperature,
+  createLocation,
 };

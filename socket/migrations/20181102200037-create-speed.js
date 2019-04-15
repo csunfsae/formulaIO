@@ -16,14 +16,8 @@ module.exports = {
     type: {
       type: Sequelize.STRING,
     },
-    createdAt: {
-      allowNull: false,
-      type: Sequelize.DATE,
-    },
-    updatedAt: {
-      allowNull: false,
-      type: Sequelize.DATE,
-    },
+  }).then(() => {
+    Sequelize.query("SELECT create_hypertable('Speeds', 'time')");
   }),
   down: queryInterface => queryInterface.dropTable('Speeds'),
 };

@@ -1,0 +1,9 @@
+{
+    "measurement": "compass",
+    "fields" : { 
+        "x": Influx.FieldType.FLOAT,
+        "y": Influx.FieldType.FLOAT,
+        "z": Influx.FieldType.FLOAT
+     },
+    "tags": ["device"]
+}
