@@ -14,7 +14,7 @@ module.exports = {
     },
     device: {
       type: Sequelize.STRING,
-    }
+    },
   }).then(() => {
     Sequelize.query("SELECT create_hypertable('Controls', 'time')");
   }),
