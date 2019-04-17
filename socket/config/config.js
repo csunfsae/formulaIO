@@ -6,4 +6,5 @@ module.exports = {
   password: process.env.PASSWORD,
   host: process.env.HOST,
   dialect: process.env.DIALECT,
+  logging: false,
 };

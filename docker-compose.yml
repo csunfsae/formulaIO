@@ -8,19 +8,8 @@ services:
     environment:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: formulaDB
-  influxdb:
-    image: influxdb:latest
-    container_name: influxdb
-    ports:
-      - "8083:8083"
-      - "8086:8086"
-      - "8090:8090"
     volumes:
-      - /srv/docker/influxdb/data:/var/lib/influxdb
-    environment:
-      - "INFLUXDB_DB=formulaDB"
-      - "INFLUXDB_ADMIN_USER=racer"
-      - "INFLUXDB_ADMIN_PASSWORD=password"
+     - "/mnt/volume_sfo2_01/postgres:/var/lib/postgresql/data"
   api:
     restart: always
     build:
@@ -36,6 +25,7 @@ services:
       LETSENCRYPT_HOST: api.matadormotorsports.racing
       LETSENCRYPT_EMAIL: csun.fsae.2018@gmail.com
   grafana:
+    restart: always
     user: root
     volumes:
       - ./grafana-storage:/var/lib/grafana
@@ -50,7 +40,7 @@ services:
       GF_METRICS_ENABLED: "true"
       GF_SECURITY_DISABLE_GRAVATAR: "true"
       GF_SERVER_ROOT_URL: "https://matadormotorsports.racing"
-      GF_INSTALL_PLUGINS: "https://github.com/pR0Ps/grafana-trackmap-panel/archive/v2.0.0.zip;grafana-trackmap,ryantxu-ajax-panel,grafana-clock-panel,yesoreyeram-boomtable-panel,briangann-gauge-panel,bessler-pictureit-panel,natel-plotly-panel,jdbranham-diagram-panel,vonage-status-panel,grafana-worldmap-panel,snuids-radar-panel,marcuscalidus-svg-panel"
+      GF_INSTALL_PLUGINS: "satellogic-3d-globe-panel,mxswat-separator-panel,pr0ps-trackmap-panel,ryantxu-ajax-panel,grafana-clock-panel,yesoreyeram-boomtable-panel,briangann-gauge-panel,bessler-pictureit-panel,natel-plotly-panel,jdbranham-diagram-panel,vonage-status-panel,grafana-worldmap-panel,snuids-radar-panel,marcuscalidus-svg-panel"
       # GF_AUTH_ANONYMOUS_ENABLED: "true"
       GF_AUTH_GOOGLE_ENABLED: "true"
       GF_AUTH_GOOGLE_CLIENT_ID: "${CLIENT_ID}"
