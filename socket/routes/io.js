@@ -47,6 +47,10 @@ function ioRouter(io) {
       socket.broadcast.emit('temperature', data);
       api.createTemperature(data);
     });
+    socket.on('canbus', (data) => {
+      socket.broadcast.emit('canbus', data);
+      api.createCanbus(data);
+    });
   });
 }
 module.exports = ioRouter;
