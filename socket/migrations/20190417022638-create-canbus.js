@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       can_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       can_data: {
         type: Sequelize.STRING
