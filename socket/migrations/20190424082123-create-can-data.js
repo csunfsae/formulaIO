@@ -1,11 +1,20 @@
 
 module.exports = {
-  up: (queryInterface, Sequelize) => queryInterface.createTable('Accelerators', {
+  up: (queryInterface, Sequelize) => queryInterface.createTable('CanData', {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: Sequelize.INTEGER,
+    },
+    can_id: {
+      type: Sequelize.DOUBLE,
+    },
+    data: {
+      type: Sequelize.STRING,
+    },
+    value: {
+      type: Sequelize.DOUBLE,
     },
     time: {
       type: Sequelize.DATE,
@@ -19,5 +28,5 @@ module.exports = {
       type: Sequelize.DATE,
     },
   }),
-  down: queryInterface => queryInterface.dropTable('Accelerators'),
+  down: queryInterface => queryInterface.dropTable('CanData'),
 };
