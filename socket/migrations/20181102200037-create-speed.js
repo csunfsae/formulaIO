@@ -13,9 +13,6 @@ module.exports = {
     value: {
       type: Sequelize.BIGINT,
     },
-    type: {
-      type: Sequelize.STRING,
-    },
   }).then(() => {
     Sequelize.query("SELECT create_hypertable('Speeds', 'time')");
   }),

@@ -7,10 +7,10 @@ function ioRouter(io) {
       socket.broadcast.emit('voltage', data);
       api.createVoltage(data);
     });
-    socket.on('offsets', (data) => {
-      socket.broadcast.emit('offsets', data);
-      api.createOffsets(data);
-    });
+    // socket.on('offsets', (data) => {
+    //   socket.broadcast.emit('offsets', data);
+    //   api.createOffsets(data);
+    // });
     socket.on('speed', (data) => {
       socket.broadcast.emit('speed', data);
       api.createSpeed(data);
@@ -47,9 +47,25 @@ function ioRouter(io) {
       socket.broadcast.emit('temperature', data);
       api.createTemperature(data);
     });
-    socket.on('canbus', (data) => {
-      socket.broadcast.emit('canbus', data);
-      api.createCanbus(data);
+    socket.on('steering', (data) => {
+      socket.broadcast.emit('steering', data);
+      api.createSteering(data);
+    });
+    socket.on('accelerator', (data) => {
+      socket.broadcast.emit('accelerator', data);
+      api.createAccelerator(data);
+    });
+    socket.on('can_data', (data) => {
+      socket.broadcast.emit('can_data', data);
+      api.createCanData(data);
+    });
+    socket.on('suspension_offsets', (data) => {
+      socket.broadcast.emit('suspension_offsets', data);
+      api.createSuspensionOffset(data);
+    });
+    socket.on('brake', (data) => {
+      socket.broadcast.emit('brake', data);
+      api.createBrake(data);
     });
   });
 }
