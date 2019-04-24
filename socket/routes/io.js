@@ -47,8 +47,8 @@ function ioRouter(io) {
       socket.broadcast.emit('temperature', data);
       api.createTemperature(data);
     });
-    socket.on('steering', (data) => {
-      socket.broadcast.emit('steering', data);
+    socket.on('steering_wheel', (data) => {
+      socket.broadcast.emit('steering_wheel', data);
       api.createSteering(data);
     });
     socket.on('accelerator', (data) => {
