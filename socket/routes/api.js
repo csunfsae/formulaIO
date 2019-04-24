@@ -29,7 +29,6 @@ function createSpeed(body) {
   return models.Speed.create({
     time: Date.parse(body.time),
     value: body.value,
-    type: body.type,
   });
 }
 function createHealth(body) {
@@ -91,6 +90,41 @@ function createCompass(body) {
     device: body.device,
   });
 }
+function createSteering(body) {
+  return models.Steering.create({
+    time: Date.parse(body.time),
+    value: body.value,
+  });
+}
+function createAccelerator(body) {
+  return models.Accelerator.create({
+    time: Date.parse(body.time),
+    value: body.value,
+  });
+}
+function createCanData(body) {
+  return models.CanData.create({
+    time: Date.parse(body.time),
+    can_id: body.id,
+    data: body.data,
+    value: body.value,
+  });
+}
+function createSuspensionOffset(body) {
+  return models.SuspensionOffset.create({
+    time: Date.parse(body.time),
+    fl: body.fl,
+    fr: body.fr,
+    rl: body.rl,
+    rr: body.rr,
+  });
+}
+function createBrake(body) {
+  return models.Brake.create({
+    time: Date.parse(body.time),
+    value: body.value,
+  });
+}
 
 // Post Routes
 router.post('/traction', (req, res) => {
@@ -135,6 +169,26 @@ router.post('/compass', (req, res) => {
 });
 router.post('/temperature', (req, res) => {
   createTemperature(req.body)
+    .then(res.status(200).end());
+});
+router.post('/steering', (req, res) => {
+  createSteering(req.body)
+    .then(res.status(200).end());
+});
+router.post('/accelerator', (req, res) => {
+  createAccelerator(req.body)
+    .then(res.status(200).end());
+});
+router.post('/can_data', (req, res) => {
+  createCanData(req.body)
+    .then(res.status(200).end());
+});
+router.post('/suspension_offset', (req, res) => {
+  createSuspensionOffset(req.body)
+    .then(res.status(200).end());
+});
+router.post('/brake', (req, res) => {
+  createBrake(req.body)
     .then(res.status(200).end());
 });
 
@@ -194,6 +248,31 @@ router.get('/temperature', (req, res) => {
     res.json(temperature);
   });
 });
+router.get('/steering', (req, res) => {
+  models.Steering.findAll().then((steering) => {
+    res.json(steering);
+  });
+});
+router.get('/accelerator', (req, res) => {
+  models.Accelerator.findAll().then((accelerator) => {
+    res.json(accelerator);
+  });
+});
+router.get('/can_data', (req, res) => {
+  models.CanData.findAll().then((canData) => {
+    res.json(canData);
+  });
+});
+router.get('/suspension_offset', (req, res) => {
+  models.SuspensionOffset.findAll().then((suspensionOffset) => {
+    res.json(suspensionOffset);
+  });
+});
+router.get('/brake', (req, res) => {
+  models.Brake.findAll().then((brake) => {
+    res.json(brake);
+  });
+});
 
 // router.get('/3d/gyro', (req, res) => {
 //   res.json([]);
@@ -213,4 +292,9 @@ module.exports = {
   createCompass,
   createTemperature,
   createLocation,
+  createSteering,
+  createAccelerator,
+  createCanData,
+  createSuspensionOffset,
+  createBrake,
 };
