@@ -59,8 +59,8 @@ function ioRouter(io) {
       socket.broadcast.emit('can_data', data);
       api.createCanData(data);
     });
-    socket.on('suspension_offsets', (data) => {
-      socket.broadcast.emit('suspension_offsets', data);
+    socket.on('suspension_offset', (data) => {
+      socket.broadcast.emit('suspension_offset', data);
       api.createSuspensionOffset(data);
     });
     socket.on('brake', (data) => {
