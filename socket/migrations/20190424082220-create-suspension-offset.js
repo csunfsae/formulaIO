@@ -1,6 +1,6 @@
 
 module.exports = {
-  up: (queryInterface, Sequelize) => queryInterface.createTable('Brakes', {
+  up: (queryInterface, Sequelize) => queryInterface.createTable('SuspensionOffsets', {
     id: {
       allowNull: false,
       autoIncrement: true,
@@ -9,6 +9,18 @@ module.exports = {
     },
     time: {
       type: Sequelize.DATE,
+    },
+    fr: {
+      type: Sequelize.DOUBLE,
+    },
+    fl: {
+      type: Sequelize.DOUBLE,
+    },
+    rr: {
+      type: Sequelize.DOUBLE,
+    },
+    rl: {
+      type: Sequelize.DOUBLE,
     },
     createdAt: {
       allowNull: false,
@@ -19,5 +31,5 @@ module.exports = {
       type: Sequelize.DATE,
     },
   }),
-  down: queryInterface => queryInterface.dropTable('Brakes'),
+  down: queryInterface => queryInterface.dropTable('SuspensionOffsets'),
 };
