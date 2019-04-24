@@ -3,6 +3,14 @@ const express = require('express');
 const router = express.Router();
 const models = require('../models');
 
+function createCanbus(body) {
+  return models.Canbus.create({
+    time: Date.parse(body.time),
+    can_id: body.id,
+    can_data: body.data,
+    device: body.device,
+  });
+}
 function createVoltage(body) {
   return models.Voltage.create({
     time: Date.parse(body.time),
