@@ -101,7 +101,7 @@ function createCompass(body) {
 function createSteering(body) {
   return models.Steering.create({
     time: Date.parse(body.time),
-    value: body.value,
+    value: body.data,
   });
 }
 function createAccelerator(body) {
