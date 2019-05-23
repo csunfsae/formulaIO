@@ -289,6 +289,7 @@ router.get('/brake', (req, res) => {
 
 module.exports = {
   router,
+  createCanbus,
   createVoltage,
   createOffsets,
   createSpeed,
